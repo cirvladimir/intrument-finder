@@ -1,7 +1,7 @@
 intrument-finder
 ================
 
-Program compile on ubuntu using g++ (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3.
+Program compiled on ubuntu using g++ (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3.
 
 To run grapher:
 The required refferences are in graph.sh.

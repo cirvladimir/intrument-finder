@@ -88,20 +88,24 @@ int main()
 	cout << endl;
 	
 	//experiment: try matching another violin file with instruments used in sample
-	const char * tFile = "Violin-vib-in-A4.wav";
-	cout << "Testing " << tFile  << endl;
-	
-	int testActStarts[4] = { 5000, 15000, 25000, 55000 };
-	for (int testInd = 0; testInd < 4; testInd++)
+	const char * tFiles[3] = {"Violin-vib-in-A4.wav", "mystery2.wav", "mystery1.wav"};
+	for (int i = 0; i < 3; i++)
 	{
-		cout << "Testing starting at sample " << testActStarts[testInd] << endl;
-		//read/normalize a vector of fourier coefficients
-		double difSamp[NUM_HARMS * 2];
-		r.normalize(difSamp, r.read(tFile, testActStarts[testInd], NUM_PERIODS, 550, 1, difSamp));
+		const char * tFile = tFiles[i];
+		cout << "Testing " << tFile  << endl;
+	
+		int testActStarts[4] = { 5000, 15000, 25000, 55000 };
+		for (int testInd = 0; testInd < 4; testInd++)
+		{
+			cout << "Testing starting at sample " << testActStarts[testInd] << endl;
+			//read/normalize a vector of fourier coefficients
+			double difSamp[NUM_HARMS * 2];
+			r.normalize(difSamp, r.read(tFile, testActStarts[testInd], NUM_PERIODS, 550, 1, difSamp));
 		
-		//match vector with one of the average instrument vectors
-		int match = data.match(avgPts, 4, difSamp);
-		cout << "Unknown instument matched with instrument " 
-			<< match << endl;
+			//match vector with one of the average instrument vectors
+			int match = data.match(avgPts, 4, difSamp);
+			cout << "Unknown instument matched with instrument " 
+				<< match << endl;
+		}
 	}
 }

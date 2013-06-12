@@ -16,3 +16,5 @@ To complie + run, run
   source run.sh
 To run precompiled, run
   ./main.out
+  
+Main algorithm logic located in audioReader/alg.cpp

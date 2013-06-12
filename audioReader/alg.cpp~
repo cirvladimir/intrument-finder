@@ -10,8 +10,6 @@
 #define NUM_INSTS 4
 //number of periods to go through
 #define NUM_PERIODS 15
-//fundamental frequency
-#define FUNDAMENTAL 550
 
 int main()
 {
@@ -48,7 +46,7 @@ int main()
 		//read some points
 		//store to central point list
 		//record average for instrument
-		int numPts = r.read(insts[instInd], 5000, NUM_PERIODS, FUNDAMENTAL, NUM_DATS, dat);
+		int numPts = r.read(insts[instInd], 5000, NUM_PERIODS, 550, NUM_DATS, dat);
 		totPts += numPts;
 		r.normalize(dat, numPts);
 		
@@ -77,7 +75,7 @@ int main()
 		{
 			//read/normalize a vector of fourier coefficients
 			double sampData[NUM_HARMS * 2];
-			r.normalize(sampData, r.read(insts[i], testContStarts[contTestInd], NUM_PERIODS, FUNDAMENTAL, 1, sampData));
+			r.normalize(sampData, r.read(insts[i], testContStarts[contTestInd], 15, 550, 1, sampData));
 			
 			//match vector to one of the average instrument vectors
 			int match = data.match(avgPts, 4, sampData);
@@ -97,7 +95,7 @@ int main()
 		cout << "Testing starting at sample " << testActStarts[testInd] << endl;
 		//read/normalize a vector of fourier coefficients
 		double difSamp[NUM_HARMS * 2];
-		r.normalize(difSamp, r.read(tFile, testActStarts[testInd], NUM_PERIODS, 550, 1, difSamp));
+		r.normalize(difSamp, r.read(tFile, testActStarts[testInd], 15, 550, 1, difSamp));
 		
 		//match vector with one of the average instrument vectors
 		int match = data.match(avgPts, 4, difSamp);

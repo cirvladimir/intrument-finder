@@ -16,7 +16,7 @@ Navigate to the root directory (intrument-finder) in terminal on ubuntu and exec
   source run.sh.
 This will compile the program, store the compiled file to graph.out, and execute it.
 To execute pre-compile program run
-	./main.out
+  ./main.out
 from root directory.
   
 Main algorithm logic located in audioReader/alg.cpp

@@ -14,7 +14,7 @@ from root directory.
 To run the identifying algotithm:
 Navigate to the root directory (intrument-finder) in terminal on ubuntu and execute:
   source run.sh.
-This will compile the program, store the compiled file to graph.out, and execute it.
+This will compile the program, store the compiled file to main.out, and execute it.
 To execute pre-compile program run
 	./main.out
 from root directory.

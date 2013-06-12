@@ -95,17 +95,22 @@ int main()
 		cout << "Testing " << tFile  << endl;
 	
 		int testActStarts[4] = { 5000, 15000, 25000, 55000 };
+		cout << " Start sample       |  ";
+		for (int i = 0; i < 4; i++)
+		{
+			cout << testActStarts[i] << " | " ;
+		}
+		cout << endl << " Matched instrument |";
 		for (int testInd = 0; testInd < 4; testInd++)
 		{
-			cout << "Testing starting at sample " << testActStarts[testInd] << endl;
 			//read/normalize a vector of fourier coefficients
 			double difSamp[NUM_HARMS * 2];
 			r.normalize(difSamp, r.read(tFile, testActStarts[testInd], NUM_PERIODS, 550, 1, difSamp));
 		
 			//match vector with one of the average instrument vectors
 			int match = data.match(avgPts, 4, difSamp);
-			cout << "Unknown instument matched with instrument " 
-				<< match << endl;
+			cout << "   " << match << "   |";
 		}
+		cout << endl;
 	}
 }

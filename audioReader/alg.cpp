@@ -77,7 +77,7 @@ int main()
 		{
 			//read/normalize a vector of fourier coefficients
 			double sampData[NUM_HARMS * 2];
-			r.normalize(sampData, r.read(insts[i], testContStarts[contTestInd], NUM_PERIODS, FUNDAMENTAL, 1, sampData));
+			r.normalize(sampData, r.read(insts[i], testContStarts[contTestInd], 20, FUNDAMENTAL, 1, sampData));
 			
 			//match vector to one of the average instrument vectors
 			int match = data.match(avgPts, 4, sampData);
